@@ -1,0 +1,39 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.4.BUILD-SNAPSHOT'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java'
+}
+
+group = 'com.advantest'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.spring.io/milestone' }
+    maven { url 'https://repo.spring.io/snapshot' }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'commons-io:commons-io:2.6'
+    implementation 'org.springframework.boot:spring-boot-starter-cache'
+    implementation 'org.tukaani:xz:1.7'
+    implementation 'com.amazonaws:aws-java-sdk-s3:1.11.864'
+    implementation 'com.github.ben-manes.caffeine:caffeine:2.8.8'
+    implementation 'org.webjars:jquery:3.3.1'
+    implementation 'javax.xml.bind:jaxb-api'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'com.h2database:h2:1.4.200'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.3.1.RELEASE'
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    implementation 'junit:junit:4.12'
+}
+
+test {
+    useJUnitPlatform()
+}
